@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container {
+        width: 500px;
+        height: 450px;
+        background: white;
+        margin: 50px auto;
+        border-radius: 20px;
+        overflow: hidden;
+        border: solid rgb(3, 3, 148);
+        padding: 10px;
+
+
+    }
+
+    .header {
+        display: flex;
+        height: 90px;
+        background: rgb(9, 36, 126);
+        color: white;
+        align-items: center;
+        padding-left: 60px;
+    }
+
+    .header img {
+        height: 85px;
+        width: 85px;
+        margin-right: 20px;
+    }
+
+    .header h1 {
+        font-size: 40px;
+    }
+
+    .details {
+        margin: 50px;
+    }
+
+    .details p {
+        font-size: 80px;
+        margin: 15px;
+        padding: 10px;
+    }
+
+    .student {
+        position: absolute;
+        margin-left: 330px;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .student img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        display: flex;
+    }
+
+    .student h2 {
+        color: rgb(15, 14, 14);
+    }
+
+    .sign {
+        padding: 10px;
+
+    }
+    .format{
+        width: 40%;
+        box-shadow: 0 0 5px;
+        margin: auto;
+        padding: 10px;
+        border-radius: 10px;
+        border: solid black;
+    }
+    input{
+        display: block;
+        padding: 10px;
+        width: 90%;
+        margin: 10px;
+        text-transform: uppercase;
+        border: 0;
+        outline: none;
+        box-shadow: 0 0 1px gray;
+        border-radius: 5px;
+    }
+    .format h1{
+        text-align: center;
+    }
+
+
+</style>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="png.webp" alt="">
+            <h1>IFDA INSTITUTE</h1>
+        </div>
+        <div class="student">
+            <img src="AI.jpg" alt="" id="profileImage">
+            <h2 id="ProfileName">Parul</h2>
+        </div>
+        <div class="detail">
+            <p>Name : <span id="name">Parul</span></p>
+            <p>ID : <span id="st_id">0123456789</span></p>
+            <p>Course : <span id="Course">ADCA</span></p>
+            <p>Mobile NO :<span id="Mobile">9212345678</span></p>
+            <p>Session :<span id="Session">2025-2026</span></p>
+            <p>Age :<span id="Age">21</span></p>
+            <p>Branch :<span id="Branch">Badarpur</span></p>
+
+        </div>
+        <div class="sign">
+            <h4>Authorize Signature</h4>
+        </div>
+    </div>
+
+
+    <form class="format">
+        <h1>ID Form</h1>
+        <input type="text" id="formname" placeholder="Name">
+        <input type="number" id="formstid" placeholder="st_id">
+        <input type="text" id="formCourse" placeholder="course">
+        <input type="number" id="formmobile" placeholder="Mobile">
+        <input type="number" id="formsession" placeholder="Session">
+        <input type="number" id="formage" placeholder="Age">
+        <input type="text" id="formBranch" placeholder="Branch">
+        <input type="file" id="formImage">
+    </form>
+
+    <script>
+        // icard details
+        const name = document.getElementById("name")
+        const st_id = document.getElementById("st_id")
+        const Course = document.getElementById("Course")
+        const Mobile = document.getElementById("Mobile")
+        const Session = document.getElementById("Session")
+        const Age = document.getElementById("Age")
+        const Branch = document.getElementById("Branch")
+        const profileImage = document.getElementById("profileImage")
+        const ProfileName = document.getElementById("ProfileName")
+
+        // form details
+
+        const formName = document.getElementById("formname")
+        const formStid = document.getElementById("formstid")
+        const formCourse = document.getElementById("formCourse")
+        const formMobile = document.getElementById("formmobile")
+        const formSession = document.getElementById("formsession")
+        const formAge = document.getElementById("formage")
+        const formBranch = document.getElementById("formBranch")
+        const formImage = document.getElementById("formImage")
+
+
+        formName.onchange = function (){
+            name.textContent = formName.value
+            ProfileName.textContent = formName.value
+        }
+
+        formStid.onchange = function (){
+            st_id.textContent = formStid.value
+        }
+        formCourse.onchange = function (){
+            Course.textContent = formCourse.value
+        }
+        formMobile.onchange = function (){
+            Mobile.textContent = formMobile.value
+        }
+        formSession.onchange = function (){
+            Session.textContent = formSession.value
+        }
+        formAge.onchange =  function (){
+            Age.textContent = formAge.value
+        }
+        formBranch.onchange = function (){
+            Branch.textContent = formBranch.value
+        }
+        formImage.onchange = function(){
+            const file = formImage.files[0]
+
+            const reader = new FileReader()
+
+            reader.onload = function(){
+                profileImage.setAttribute("src",reader.result)
+            }
+            reader.readAsDataURL(file)
+        }
+        
+    </script>
+
+
+</body>
+
+</html>
